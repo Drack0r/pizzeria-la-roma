@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { House, Mail, Menu, Pizza, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+import { useFetch } from "@/src/hooks";
 
 import { Button } from "../ui";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { data: navLinks, isLoading, error } = useFetch("/data/nav-links.json");
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -29,7 +33,7 @@ function Nav() {
 
       {/* Side Nav */}
       <div
-        className={`absolute top-0 left-0 h-screen w-screen bg-black/30 ${isOpen ? "block" : "hidden"}`}
+        className={`absolute top-0 left-0 h-screen w-screen bg-black/50 ${isOpen ? "block" : "hidden"}`}
         onClick={handleClose}
       >
         <aside
@@ -41,47 +45,22 @@ function Nav() {
           </Button>
 
           <nav className="mt-10">
-            <ul>
-              <hr />
+            <ul className="flex flex-col gap-1">
+              {isLoading && <p className="pl-4 text-gray-600">Chargement...</p>}
 
-              <li>
-                <Link
-                  href="/"
-                  className="flex items-center gap-2 rounded-xl py-4 pl-4"
-                  onClick={handleClose}
-                >
-                  <House />
-                  Accueil
-                </Link>
-              </li>
+              {error && <p className="pl-4 text-red-600">{error}</p>}
 
-              <hr />
-
-              <li>
-                <Link
-                  href="/menu"
-                  className="flex items-center gap-2 rounded-xl py-4 pl-4"
-                  onClick={handleClose}
-                >
-                  <Pizza />
-                  Menu
-                </Link>
-              </li>
-
-              <hr />
-
-              <li>
-                <Link
-                  href="/contact"
-                  className="flex items-center gap-2 rounded-xl py-4 pl-4"
-                  onClick={handleClose}
-                >
-                  <Mail />
-                  Contact
-                </Link>
-              </li>
-
-              <hr />
+              {navLinks?.map((navLink) => (
+                <li key={navLink.id}>
+                  <Link
+                    href={navLink.href}
+                    className="flex py-4 pl-4"
+                    onClick={handleClose}
+                  >
+                    {navLink.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </aside>
