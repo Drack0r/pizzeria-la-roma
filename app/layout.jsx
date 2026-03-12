@@ -1,9 +1,15 @@
+import { Header } from "@/src/components/layout";
+
 import "@/src/styles/global.css";
 
 function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body suppressHydrationWarning>
+        <Header />
+
+        {children}
+      </body>
     </html>
   );
 }
