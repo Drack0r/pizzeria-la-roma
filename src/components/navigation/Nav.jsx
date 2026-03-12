@@ -30,20 +30,27 @@ function Nav() {
 
   return (
     <>
-      <Button onClick={handleOpen} aria-label="Ouvrir la navigation">
+      <Button
+        className="p-3 duration-300 hover:bg-stone-200 active:opacity-50"
+        onClick={handleOpen}
+        aria-label="Ouvrir la navigation"
+      >
         <Menu />
       </Button>
 
       {/* Side Nav */}
       <div
-        className={`absolute top-0 left-0 h-screen w-screen bg-black/50 ${isOpen ? "block" : "hidden"}`}
+        className={`fixed top-0 left-0 z-5 h-screen w-screen bg-black/50 transition-opacity duration-300 ${isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
         onClick={handleClose}
       >
         <aside
-          className="absolute top-0 left-0 z-10 h-screen w-1/2 bg-white"
+          className={`absolute top-0 left-0 z-10 h-screen w-fit bg-white transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
           onClick={handleAsideClick}
         >
-          <Button className="absolute top-0 right-0" onClick={handleClose}>
+          <Button
+            className="absolute top-0 right-0 duration-300 hover:text-red-600 active:opacity-50"
+            onClick={handleClose}
+          >
             <X />
           </Button>
 
@@ -60,7 +67,7 @@ function Nav() {
                   <li key={navLink.id}>
                     <Link
                       href={navLink.href}
-                      className="flex items-center gap-2 rounded-xl py-4 pl-4"
+                      className="flex items-center gap-2 rounded-xl py-4 pr-[15vw] pl-[5vw] duration-300 hover:bg-stone-200 active:opacity-50"
                       onClick={handleClose}
                     >
                       {IconComponent && <IconComponent size={20} />}

@@ -10,7 +10,10 @@ function Header() {
 
       <Logo className="h-auto w-[50vw] max-w-50" />
 
-      <Button aria-label="Nous appeler">
+      <Button
+        className="p-3 duration-300 hover:bg-stone-200 active:opacity-50"
+        aria-label="Nous appeler"
+      >
         <PhoneOutgoing />
       </Button>
     </header>

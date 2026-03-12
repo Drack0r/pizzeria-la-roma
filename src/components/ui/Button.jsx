@@ -6,7 +6,10 @@ function Button({ onClick, className, children, ...props }) {
   return (
     <button
       type="button"
-      className={clsx("p-2", className)}
+      className={clsx(
+        "flex items-center justify-center rounded-full p-2",
+        className,
+      )}
       onClick={onClick}
       {...props}
     >
