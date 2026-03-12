@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer base {
-  button {
+  button:not(:disabled) {
     cursor: pointer;
   }
 }

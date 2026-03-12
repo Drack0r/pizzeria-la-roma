@@ -5,7 +5,7 @@ import "@/src/styles/global.css";
 function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body suppressHydrationWarning>
+      <body>
         <Header />
 
         {children}
