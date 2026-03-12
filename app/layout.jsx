@@ -10,7 +10,7 @@ function RootLayout({ children }) {
   return (
     <html lang="fr">
       <head />
-      <body>
+      <body suppressHydrationWarning>
         <Header />
 
         {children}

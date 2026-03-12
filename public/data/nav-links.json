@@ -1,16 +1,19 @@
 [
   {
     "id": 1,
+    "icon": "House",
     "label": "Accueil",
     "href": "/"
   },
   {
     "id": 2,
+    "icon": "Pizza",
     "label": "Menu",
     "href": "/menu"
   },
   {
     "id": 3,
+    "icon": "Mail",
     "label": "Contact",
     "href": "/contact"
   }

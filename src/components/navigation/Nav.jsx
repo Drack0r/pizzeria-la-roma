@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
-import { useFetch } from "@/src/hooks";
+import { useFetch, useIcons } from "@/src/hooks";
 
 import { Button } from "../ui";
 
@@ -12,6 +12,9 @@ function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data: navLinks, isLoading, error } = useFetch("/data/nav-links.json");
+
+  const iconNamesArray = navLinks?.map((navLink) => navLink.icon) || [];
+  const { icons, isLoading: iconsLoading } = useIcons(iconNamesArray);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -50,17 +53,22 @@ function Nav() {
 
               {error && <p className="pl-4 text-red-600">{error}</p>}
 
-              {navLinks?.map((navLink) => (
-                <li key={navLink.id}>
-                  <Link
-                    href={navLink.href}
-                    className="flex py-4 pl-4"
-                    onClick={handleClose}
-                  >
-                    {navLink.label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks?.map((navLink) => {
+                const IconComponent = icons?.[navLink.icon];
+
+                return (
+                  <li key={navLink.id}>
+                    <Link
+                      href={navLink.href}
+                      className="flex items-center gap-2 rounded-xl py-4 pl-4"
+                      onClick={handleClose}
+                    >
+                      {IconComponent && <IconComponent size={20} />}
+                      {navLink.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </aside>
