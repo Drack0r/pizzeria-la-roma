@@ -3,9 +3,9 @@ import Link from "next/link";
 
 function Logo({ ...props }) {
   return (
-    <Link href={"/"}>
+    <Link href="/">
       <Image
-        src={"/images/logo.png"}
+        src="/images/logo.png"
         alt="Logo de La Roma"
         width={500} // base: 2000px
         height={150} // base: 600px

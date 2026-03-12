@@ -5,11 +5,8 @@ import clsx from "clsx";
 function Button({ onClick, className, children, ...props }) {
   return (
     <button
-      className={clsx(
-        "p-2 duration-300 hover:opacity-60 active:opacity-40",
-        className,
-      )}
       type="button"
+      className={clsx("p-2", className)}
       onClick={onClick}
       {...props}
     >
