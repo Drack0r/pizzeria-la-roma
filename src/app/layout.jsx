@@ -1,5 +1,12 @@
 import "@/sass/main.scss";
 
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
+
 export const metadata = {
   title: "La Roma - Accueil",
   description: "#",
@@ -8,7 +15,7 @@ export const metadata = {
 function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body suppressHydrationWarning>
+      <body className={roboto.className} suppressHydrationWarning>
         <main>{children}</main>
       </body>
     </html>
