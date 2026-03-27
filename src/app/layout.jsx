@@ -1,3 +1,5 @@
+import "@/sass/main.scss";
+
 export const metadata = {
   title: "La Roma - Accueil",
   description: "#",
@@ -6,7 +8,7 @@ export const metadata = {
 function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body>
+      <body suppressHydrationWarning>
         <main>{children}</main>
       </body>
     </html>
