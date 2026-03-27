@@ -2,6 +2,8 @@ import "@/sass/main.scss";
 
 import { Roboto } from "next/font/google";
 
+import { Header } from "@/components/layout/Header";
+
 const roboto = Roboto({
   subsets: ["latin"],
   variable: "--font-roboto",
@@ -16,6 +18,8 @@ function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body className={roboto.className} suppressHydrationWarning>
+        <Header />
+
         <main>{children}</main>
       </body>
     </html>

@@ -1,3 +1,7 @@
 body {
   background-color: var(--white);
 }
+
+button:not([disabled]) {
+  cursor: pointer;
+}

@@ -86,3 +86,9 @@ ul,
 ol {
   list-style: none;
 }
+
+/* 13. Remove default button styles */
+button {
+  background: none;
+  border: none;
+}
