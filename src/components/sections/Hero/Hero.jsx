@@ -30,8 +30,12 @@ function Hero() {
         {/* Card */}
         <article className={styles.card}>
           <h1>Bienvenue à La Roma !</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p>Quisque tincidunt vitae est sit amet feugiat.</p>
+          <p>
+            Découvrez nos délicieuses pizzas artisanales préparées avec passion.
+          </p>
+          <p>
+            Venez déguster une expérience culinaire authentique et inoubliable.
+          </p>
         </article>
 
         {/* Actions */}
