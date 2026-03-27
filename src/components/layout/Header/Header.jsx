@@ -12,7 +12,7 @@ function Header() {
       <button>
         <Bars3Icon
           className={styles.menu_icon}
-          onClick={() => alert("Vous ouvrez le menu de navigation !")} // todo : add show menu
+          onClick={() => alert("Vous ouvrez le menu de navigation")} // todo : add feature
         />
       </button>
 
@@ -21,7 +21,7 @@ function Header() {
       <button>
         <PhoneArrowUpRightIcon
           className={styles.phone_icon}
-          onClick={() => alert("Vous appelez La Roma !")} // todo : add call number
+          onClick={() => alert("Vous appelez La Roma")} // todo : add feature
         />
       </button>
     </header>
